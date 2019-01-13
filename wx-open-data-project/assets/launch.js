@@ -8,45 +8,51 @@ cc.Class({
 
     start () {
         let _self = this;
-        
-
         wx.onMessage( data => {
-            console.log(data.message);
-        });
-
-        // https://developers.weixin.qq.com/minigame/dev/document/open-api/data/wx.getUserInfo.html
-        // wx.getUserInfo({
-        //     openIdList: ['selfOpenId'],
-        //     lang: 'zh_CN',
-        //     success: (res) => {
-        //         console.log('当前用户信息', res.data);
-        //         let userInfo = res.data[0];
-        //         _self.createUserBlock(userInfo);
-        //     },
-        //     fail: (res) => {
-        //         reject(res);
-        //     }
-        // });
-
-        wx.getUserCloudStorage({
-            keyList:['score'],
-            success(res){
-                console.log('成功获得当前用户分数成功！！',res)
-                this.myScore=res.KVDataList[0].value
-            },
-            fail(res){
-                console.log('获得当前用户分数失败',res)
+            if(data){
+                console.log(data.score)
+                wx.getUserCloudStorage({
+                    keyList:['score'],
+                    success(res){
+                        this.myScore=Number(res.KVDataList[0].value)
+                        if(data.score&&data.score>this.myScore){
+                            wx.setUserCloudStorage({
+                                KVDataList:[{key:'score',value:String(data.score)}],
+                                success(res){
+                                    console.log('上传分数成功',res)
+                                },
+                                fail(res){
+                                    console.log('上传分数成功',res)
+                                }
+                            })
+                        }  
+                    },
+                    fail(res){
+                        console.log('获得当前用户分数失败',res)
+                    }
+                })
             }
-        })
-     
+        });
         // https://developers.weixin.qq.com/minigame/dev/document/open-api/data/wx.getFriendCloudStorage.html
         wx.getFriendCloudStorage({
             keyList:['score'],
             success: function (res) {
-                console.log('获得朋友成功了哦',res)
-                console.log('什么鬼东西哦~~~~~~~~~~~~~')
-                for (let i = 0; i < 6; i++) {
-                    let friendInfo = res.data[i];
+                console.log('朋友列表',res)
+                let dataContainer=res.data
+                //分数从大到小排序
+                for(let i=0;i<dataContainer.length-1;i++){
+                    for(let j=0;j<dataContainer.length-i-1;j++){
+                        console.log(Number(dataContainer[i].KVDataList[0].value),Number(dataContainer[i+1].KVDataList[0].value))
+                        if(Number(dataContainer[i].KVDataList[0].value)<Number(dataContainer[i+1].KVDataList[0].value)){
+                            let t=dataContainer[i]
+                            dataContainer[i]=dataContainer[i+1]
+                            dataContainer[i+1]=t
+                        }
+                    }
+                }
+                //循环创建分数条目
+                for (let i = 0; i < dataContainer.length; i++) {
+                    let friendInfo = dataContainer[i];
                     if (!friendInfo) {
                         _self.createPrefab();
                         continue;
@@ -59,6 +65,8 @@ cc.Class({
             }
         });
     },
+
+  
 
     createUserBlock (user) {
         let node = this.createPrefab();
@@ -73,7 +81,6 @@ cc.Class({
         userScoreLabel.string=user.KVDataList[0].value
 
         userName.string = nickName;
-        console.log(nickName + '\'s info has been getten.');
         cc.loader.load({
             url: avatarUrl, type: 'png'
         }, (err, texture) => {

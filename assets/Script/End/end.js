@@ -26,18 +26,19 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        
+    },
+    onEnable(){
         this.newScore.string = D.commonState.gameScore ? D.commonState.gameScore.toString() : '0';
         if(D.commonState.gameScore){
-            wx.setUserCloudStorage({
-                KVDataList:[{key:'score',value:String(D.commonState.gameScore)}],
-                success(res){
-                    console.log('设置单个成功',res)
-                },
-                fail(res){
-                    console.log('设置单个失败',res)
-                }
+            //如果有分数,就向子域中发送分数
+            const openDataContext = wx.getOpenDataContext()
+            openDataContext.postMessage({
+                score: D.commonState.gameScore,
+                year: (new Date()).getFullYear()
             })
         }   
+        
     },
     restartGame: function () {
         cc.audioEngine.play(this.buttonSound);
