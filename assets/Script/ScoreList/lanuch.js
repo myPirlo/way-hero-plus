@@ -23,13 +23,11 @@ cc.Class({
     },
     onLoad(){
 
-        this.node.on('touchstart', function(){
-            if(this._isShow==true){
-                this.display.runAction(this._hide);
-                this._isShow = false;
-            }
-        }, this);
+    },
+    close(){
+        this.display.runAction(this._hide);
     }
+
 
 
 });

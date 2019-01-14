@@ -9,27 +9,30 @@ cc.Class({
     start () {
         let _self = this;
         wx.onMessage( data => {
-            if(data){
-                console.log(data.score)
+            if(data.score){
                 wx.getUserCloudStorage({
-                    keyList:['score'],
-                    success(res){
-                        this.myScore=Number(res.KVDataList[0].value)
-                        if(data.score&&data.score>this.myScore){
-                            wx.setUserCloudStorage({
-                                KVDataList:[{key:'score',value:String(data.score)}],
-                                success(res){
-                                    console.log('上传分数成功',res)
-                                },
-                                fail(res){
-                                    console.log('上传分数成功',res)
-                                }
-                            })
-                        }  
-                    },
-                    fail(res){
-                        console.log('获得当前用户分数失败',res)
-                    }
+                        keyList:['score'],
+                        success(res){
+                            console.log('获得当前用户分数成功',res)
+                            if(res.KVDataList&&res.KVDataList.length>0){
+                                this.myScore=Number(res.KVDataList[0].value)
+                            }
+                            
+                            if((data.score>this.myScore)||(!res.KVDataList)||(res.KVDataList.length===0)){
+                                wx.setUserCloudStorage({
+                                    KVDataList:[{key:'score',value:String(data.score)}],
+                                    success(res){
+                                        console.log('上传分数成功',res)
+                                    },
+                                    fail(res){
+                                        console.log('上传分数成功',res)
+                                    }
+                                })
+                            }  
+                        },
+                        fail(res){
+                            console.log('获得当前用户分数失败',res)
+                        }
                 })
             }
         });
@@ -75,7 +78,7 @@ cc.Class({
         let avatarUrl = user.avatarUrl;
 
         let userName = node.getChildByName('userName').getComponent(cc.Label);
-        let userIcon = node.getChildByName('mask').children[0].getComponent(cc.Sprite);
+        let userIcon = node.getChildByName('userIcon').getComponent(cc.Sprite);
         let userScoreLabel = node.getChildByName('score').getComponent(cc.Label);
 
         userScoreLabel.string=user.KVDataList[0].value
