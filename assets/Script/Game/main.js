@@ -65,17 +65,13 @@ cc.Class({
         if (D.commonState.pauseState) {
             this.currentBgm=cc.audioEngine.play(this.bgm, true);
             this.pause.normalSprite = this.pauseSprite[0];
-            this.pause.pressedSprite = this.pauseSprite[1];
-            this.pause.hoverSprite = this.pauseSprite[1];
             // 开始正在运行的场景
             cc.director.resume();
             // 添加Hero拖拽监听
             this.hero.onDrag();
             return D.commonState.pauseState = !D.commonState.pauseState;
         }
-        this.pause.normalSprite = this.pauseSprite[2];
-        this.pause.pressedSprite = this.pauseSprite[3];
-        this.pause.hoverSprite = this.pauseSprite[3];
+        this.pause.normalSprite = this.pauseSprite[1];
         // 暂停正在运行的场景
         cc.director.pause();
         // 移除Hero拖拽监听

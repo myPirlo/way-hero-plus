@@ -3,10 +3,12 @@
     "__type__": "cc.Prefab",
     "_name": "",
     "_objFlags": 0,
-    "_rawFiles": null,
+    "_native": "",
     "data": {
       "__id__": 1
-    }
+    },
+    "optimizationPolicy": 0,
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -14,8 +16,8 @@
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
-    "_tag": -1,
     "_active": true,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -36,7 +38,6 @@
     "_prefab": {
       "__id__": 7
     },
-    "_id": "",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -45,32 +46,42 @@
       "b": 255,
       "a": 255
     },
-    "_cascadeOpacityEnabled": true,
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 64,
+      "height": 32
+    },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
       "y": 0.5
     },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 165,
-      "height": 246
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 2,
+      "y": 2,
+      "z": 1
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
+    "_quat": {
+      "__type__": "cc.Quat",
       "x": 0,
-      "y": 0
+      "y": 0,
+      "z": 0,
+      "w": 1
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 2
+    "_zIndex": 0,
+    "groupIndex": 2,
+    "_id": ""
   },
   {
     "__type__": "cc.Sprite",
@@ -80,8 +91,10 @@
       "__id__": 1
     },
     "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "713dcbc2-f78b-48ea-9359-03bca0a49a2c"
+      "__uuid__": "17b5b9a8-e2f5-478d-8fbf-f2f753b48600"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -94,11 +107,9 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": {
-      "__uuid__": "543e2044-f481-4182-91a0-2390deb3f05d"
-    }
+    "_state": 0,
+    "_atlas": null,
+    "_id": ""
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -117,45 +128,56 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -81.7,
-        "y": -62.3
+        "x": -22,
+        "y": 16
       },
       {
         "__type__": "cc.Vec2",
-        "x": -81.7,
-        "y": -74.8
+        "x": -28,
+        "y": 14
       },
       {
         "__type__": "cc.Vec2",
-        "x": -30.1,
-        "y": -123
+        "x": -32,
+        "y": 6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 32.6,
-        "y": -123.6
+        "x": -31,
+        "y": -10
       },
       {
         "__type__": "cc.Vec2",
-        "x": 82.4,
-        "y": -75
+        "x": -26,
+        "y": -15
       },
       {
         "__type__": "cc.Vec2",
-        "x": 82.3,
-        "y": -64.7
+        "x": 22,
+        "y": -16
       },
       {
         "__type__": "cc.Vec2",
-        "x": 67.6,
-        "y": 122.1
+        "x": 28,
+        "y": -14
       },
       {
         "__type__": "cc.Vec2",
-        "x": -67,
-        "y": 121.6
+        "x": 32,
+        "y": -6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 31,
+        "y": 10
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 26,
+        "y": 15
       }
-    ]
+    ],
+    "_id": ""
   },
   {
     "__type__": "cc.Animation",
@@ -171,7 +193,8 @@
         "__uuid__": "8b35f51c-850d-42ee-a9c8-5ddbef4c7728"
       }
     ],
-    "playOnLoad": false
+    "playOnLoad": false,
+    "_id": ""
   },
   {
     "__type__": "32e26kzmGlK4odAEOcH4Z7A",
@@ -186,11 +209,12 @@
     "speedMax": 100,
     "speedMin": 50,
     "initSpriteFrame": {
-      "__uuid__": "713dcbc2-f78b-48ea-9359-03bca0a49a2c"
+      "__uuid__": "17b5b9a8-e2f5-478d-8fbf-f2f753b48600"
     },
     "explosionSound": {
       "__uuid__": "bc3446db-35d9-4f7e-a710-4b29cbfa799a"
-    }
+    },
+    "_id": ""
   },
   {
     "__type__": "cc.AudioSource",
@@ -207,7 +231,8 @@
     "_mute": false,
     "_loop": true,
     "playOnLoad": true,
-    "preload": false
+    "preload": false,
+    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",

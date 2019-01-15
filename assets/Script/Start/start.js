@@ -18,7 +18,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        this.loadAnimation.play();
+        
         // 预先加载游戏场景
         cc.director.preloadScene('Game');
     },

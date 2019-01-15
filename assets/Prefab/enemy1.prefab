@@ -45,8 +45,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 30,
-      "height": 30
+      "width": 64,
+      "height": 32
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -61,8 +61,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -91,7 +91,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "46b00dea-ce8b-44ed-b571-787b083e7f76"
+      "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -125,33 +125,53 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -3.2,
-        "y": -16.5
+        "x": -22,
+        "y": 16
       },
       {
         "__type__": "cc.Vec2",
-        "x": 4.2,
-        "y": -16.3
+        "x": -28,
+        "y": 14
       },
       {
         "__type__": "cc.Vec2",
-        "x": 26.2,
-        "y": 4.8
+        "x": -32,
+        "y": 6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 12.6,
-        "y": 17.8
+        "x": -31,
+        "y": -10
       },
       {
         "__type__": "cc.Vec2",
-        "x": -11.2,
-        "y": 18.1
+        "x": -26,
+        "y": -15
       },
       {
         "__type__": "cc.Vec2",
-        "x": -24.4,
-        "y": 4.3
+        "x": 22,
+        "y": -16
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 28,
+        "y": -14
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32,
+        "y": -6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 31,
+        "y": 10
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 26,
+        "y": 15
       }
     ],
     "_id": ""
@@ -186,7 +206,7 @@
     "speedMax": 200,
     "speedMin": 100,
     "initSpriteFrame": {
-      "__uuid__": "46b00dea-ce8b-44ed-b571-787b083e7f76"
+      "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"
     },
     "explosionSound": {
       "__uuid__": "a8aa203a-7f35-4e59-a7d8-8da78ded0c6b"
