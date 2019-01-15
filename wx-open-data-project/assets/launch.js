@@ -45,21 +45,16 @@ cc.Class({
                 //分数从大到小排序
                 for(let i=0;i<dataContainer.length-1;i++){
                     for(let j=0;j<dataContainer.length-i-1;j++){
-                        console.log(Number(dataContainer[i].KVDataList[0].value),Number(dataContainer[i+1].KVDataList[0].value))
-                        if(Number(dataContainer[i].KVDataList[0].value)<Number(dataContainer[i+1].KVDataList[0].value)){
-                            let t=dataContainer[i]
-                            dataContainer[i]=dataContainer[i+1]
-                            dataContainer[i+1]=t
+                        if(Number(dataContainer[j].KVDataList[0].value)<Number(dataContainer[j+1].KVDataList[0].value)){
+                            let t=dataContainer[j]
+                            dataContainer[j]=dataContainer[j+1]
+                            dataContainer[j+1]=t
                         }
                     }
                 }
                 //循环创建分数条目
-                for (let i = 0; i < dataContainer.length; i++) {
-                    let friendInfo = dataContainer[i];
-                    if (!friendInfo) {
-                        _self.createPrefab();
-                        continue;
-                    }
+                for (let k = 0; k < dataContainer.length; k++) {
+                    let friendInfo = dataContainer[k];
                     _self.createUserBlock(friendInfo);
                 }
             },

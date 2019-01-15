@@ -3,7 +3,9 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        display: cc.Node
+        display: cc.Node,
+        startBtn:cc.Node,
+        scoreListBtn:cc.Node
     },
 
     start () {
@@ -12,20 +14,16 @@ cc.Class({
         this._hide = cc.moveTo(0.5, 0, 2000);
     },
 
-    onClick () {
-        if (this._isShow) {
-            this.display.runAction(this._hide);
-        }
-        else {
-            this.display.runAction(this._show);
-        }
-        this._isShow = !this._isShow;
+    open () {
+        this.display.runAction(this._show);
+        this.startBtn.active=false
+        this.scoreListBtn.active=false
     },
-    onLoad(){
 
-    },
     close(){
         this.display.runAction(this._hide);
+        this.startBtn.active=true
+        this.scoreListBtn.active=true
     }
 
 
