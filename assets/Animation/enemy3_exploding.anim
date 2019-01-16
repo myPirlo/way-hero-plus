@@ -3,7 +3,7 @@
   "_name": "enemy3_exploding",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.4166666666666667,
+  "_duration": 0.08333333333333333,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -18,19 +18,19 @@
             }
           },
           {
-            "frame": 0.15,
+            "frame": 0.03333333333333333,
             "value": {
               "__uuid__": "8ff0ef3b-a209-4492-af7a-764941df07d2"
             }
           },
           {
-            "frame": 0.2833333333333333,
+            "frame": 0.05,
             "value": {
               "__uuid__": "05aa2365-894d-40b0-97dd-0bae02355544"
             }
           },
           {
-            "frame": 0.4,
+            "frame": 0.06666666666666667,
             "value": {
               "__uuid__": "2f34ac36-e944-46bc-9920-1e9c8b47795b"
             }

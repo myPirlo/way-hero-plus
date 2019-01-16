@@ -29,17 +29,18 @@ cc.Class({
             type: cc.AudioClip,
             tooltip: '敌人被击中的声音'
         },
+        text:cc.Label
     },
 
     // use this for initialization
-    onLoad: function () {
-        // 速度随机[speedMax, speedMin]
-        this.speed = Math.random() * (this.speedMax - this.speedMin + 1) + this.speedMin;
+    onLoad: function () { 
         let manager = cc.director.getCollisionManager();
         manager.enabled = true;
-        this.enemyInit();
     },
     enemyInit: function () {
+        // 速度随机[speedMax, speedMin]
+        this.text.string=this.HP
+        this.speed = Math.random() * (this.speedMax - this.speedMin + 1) + this.speedMin;
         this.enemyHp = this.HP;
         // 找到node的Sprite组件
         let nSprite = this.node.getComponent(cc.Sprite);
@@ -54,13 +55,15 @@ cc.Class({
         if (other.node.group !== 'bullet') {
             return;
         }
-        if (this.enemyHp === 0) {
-            this.enemyHp--;
+        if (this.enemyHp === 1) {
             this.explodingAnim();
+            this.enemyHp--;
+            
             return;
         }
         if (this.enemyHp > 0) {
             this.enemyHp--;
+            this.text.string=this.enemyHp
         }
     },
     explodingAnim: function () {
@@ -73,6 +76,12 @@ cc.Class({
     },
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
+        if(D.commonState.gameScore%20===0){
+            D.commonState.gameScore+=10
+            this.speedMax+=50
+            this.speedMin+=50
+            this.HP++
+        }
         this.node.y -= dt * this.speed;
         //出屏幕后 回收节点
         if (this.node.y < -this.node.parent.height / 2){

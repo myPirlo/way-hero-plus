@@ -110,7 +110,7 @@ cc.Class({
         //    console.log(thisMain)
         //    let enemy1=thisMain.getComponent('enemy1')
         //    console.log(enemy1)
-            console.log(this.enemy1)
+        //  console.log(this.enemy1)
         
         }
     },
