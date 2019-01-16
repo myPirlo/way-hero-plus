@@ -177,26 +177,6 @@
     "_id": ""
   },
   {
-    "__type__": "32e26kzmGlK4odAEOcH4Z7A",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "score": 10,
-    "HP": 5,
-    "speedMax": 150,
-    "speedMin": 100,
-    "initSpriteFrame": {
-      "__uuid__": "190d6b46-b217-41c2-b2c2-c0bc247ba56f"
-    },
-    "explosionSound": {
-      "__uuid__": "ea17de7d-e42b-43e2-83da-01eae170a6cf"
-    },
-    "_id": ""
-  },
-  {
     "__type__": "cc.Animation",
     "_name": "",
     "_objFlags": 0,
@@ -211,6 +191,29 @@
       }
     ],
     "playOnLoad": false,
+    "_id": ""
+  },
+  {
+    "__type__": "32e26kzmGlK4odAEOcH4Z7A",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "score": 20,
+    "HP": 3,
+    "speedMax": 600,
+    "speedMin": 400,
+    "initSpriteFrame": {
+      "__uuid__": "190d6b46-b217-41c2-b2c2-c0bc247ba56f"
+    },
+    "explosionSound": {
+      "__uuid__": "a058ccf8-76f0-4de9-a40f-74d33e76d65c"
+    },
+    "hitedMusic": {
+      "__uuid__": "e6e69245-0856-426f-a6af-c387a822e0e7"
+    },
     "_id": ""
   },
   {

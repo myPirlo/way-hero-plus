@@ -10,6 +10,10 @@ cc.Class({
             default: null,
             type: require('main'),
         },
+        heroHited:{
+            default:null,
+            type:cc.AudioClip
+        }
     }),
 
     // use this for initialization
@@ -50,13 +54,17 @@ cc.Class({
                     break;
             }
         } else if (other.node.group === 'enemy'){
+            cc.audioEngine.play(this.heroHited);
+
             let anim = this.getComponent(cc.Animation);
             let animName = this.node.name + '_exploding';
             anim.play(animName);
             anim.on('finished', this.onHandleDestroy, this);
+
         }
     },
     onHandleDestroy: function () {
+        console.log(1)
         // 暂停正在运行的场景，该暂停只会停止游戏逻辑执行，但是不会停止渲染和 UI 响应
         this.offDrag();
         // 游戏结束转场

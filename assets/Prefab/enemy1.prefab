@@ -201,15 +201,18 @@
       "__id__": 1
     },
     "_enabled": true,
-    "score": 5,
+    "score": 10,
     "HP": 1,
-    "speedMax": 200,
-    "speedMin": 100,
+    "speedMax": 400,
+    "speedMin": 200,
     "initSpriteFrame": {
       "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"
     },
     "explosionSound": {
-      "__uuid__": "a8aa203a-7f35-4e59-a7d8-8da78ded0c6b"
+      "__uuid__": "a058ccf8-76f0-4de9-a40f-74d33e76d65c"
+    },
+    "hitedMusic": {
+      "__uuid__": "e6e69245-0856-426f-a6af-c387a822e0e7"
     },
     "_id": ""
   },

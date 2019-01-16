@@ -1,12 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "hero_exploding",
+  "_name": "hero_live",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.35,
+  "_duration": 0.6833333333333333,
   "sample": 60,
   "speed": 1,
-  "wrapMode": "0",
+  "wrapMode": "2",
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -14,19 +14,19 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "32bd0ae5-ac0b-4e7d-bb3a-b65b078d6f8e"
-            }
-          },
-          {
-            "frame": 0.16666666666666666,
-            "value": {
-              "__uuid__": "58626907-ea62-478d-992a-73a8f35cd70d"
+              "__uuid__": "4fbc9bcb-196f-44fd-b98b-5770bc286b9b"
             }
           },
           {
             "frame": 0.3333333333333333,
             "value": {
-              "__uuid__": "622ea664-3530-413f-9b47-ab17c1492094"
+              "__uuid__": "7a0b58ce-f4d3-4f9e-a745-7da00adf661c"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "a50c0804-0a68-4657-8371-4ed138d89630"
             }
           }
         ]

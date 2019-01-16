@@ -22,6 +22,10 @@ cc.Class({
             default: null,
             type:require('enemyGroup')
         },
+        enemy1:cc.Prefab,
+        enemy2:cc.Prefab,
+        enemy3:cc.Prefab,
+        enemy4:cc.Prefab,
         ufoGroup: {
             default: null,
             type:require('ufoGroup')
@@ -51,7 +55,7 @@ cc.Class({
         this.bulletGroup.startAction();
         this.ufoGroup.startAction();
         // play bgm
-        this.currentBgm=cc.audioEngine.play(this.bgm, true);
+        //this.currentBgm=cc.audioEngine.play(this.bgm, true);
     },
     initState: function () {
         D.commonState.pauseState = false;
@@ -61,9 +65,9 @@ cc.Class({
     // 暂停
     handlePause: function () {
         cc.audioEngine.play(this.buttonSound);
-        cc.audioEngine.pause(this.currentBgm);
+        //cc.audioEngine.pause(this.currentBgm);
         if (D.commonState.pauseState) {
-            this.currentBgm=cc.audioEngine.play(this.bgm, true);
+            //this.currentBgm=cc.audioEngine.play(this.bgm, true);
             this.pause.normalSprite = this.pauseSprite[0];
             // 开始正在运行的场景
             cc.director.resume();
@@ -101,6 +105,14 @@ cc.Class({
     changeScore: function (score) {
         D.commonState.gameScore += score;
         this.scoreDisplay.string = D.commonState.gameScore.toString();
+        if(D.commonState.gameScore%10===0){
+        //    let thisMain= this.node.getComponent('main')
+        //    console.log(thisMain)
+        //    let enemy1=thisMain.getComponent('enemy1')
+        //    console.log(enemy1)
+            console.log(this.enemy1)
+        
+        }
     },
     // 游戏结束
     gameOver: function () {

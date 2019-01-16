@@ -21,7 +21,13 @@ cc.Class({
         },
         explosionSound: {
             default: null,
-            type: cc.AudioClip
+            type: cc.AudioClip,
+            tooltip: '敌人爆炸音效'
+        },
+        hitedMusic: {
+            default: null,
+            type: cc.AudioClip,
+            tooltip: '敌人被击中的声音'
         },
     },
 
@@ -44,6 +50,7 @@ cc.Class({
     },
     //碰撞检测
     onCollisionEnter: function(other, self){
+        cc.audioEngine.play(this.hitedMusic);
         if (other.node.group !== 'bullet') {
             return;
         }
