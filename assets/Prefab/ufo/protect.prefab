@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy4",
+    "_name": "protect",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -31,16 +31,10 @@
       },
       {
         "__id__": 7
-      },
-      {
-        "__id__": 8
-      },
-      {
-        "__id__": 9
       }
     ],
     "_prefab": {
-      "__id__": 10
+      "__id__": 8
     },
     "_opacity": 255,
     "_color": {
@@ -52,8 +46,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 64,
-      "height": 32
+      "width": 40,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -68,8 +62,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -84,12 +78,12 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 2,
+    "groupIndex": 4,
     "_id": ""
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "hh",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -115,8 +109,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 8.9,
-      "height": 40
+      "width": 85,
+      "height": 85
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -151,56 +145,20 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 2
     },
     "_enabled": true,
-    "_srcBlendFactor": 1,
-    "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
-    "_string": "0",
-    "_N$string": "0",
-    "_fontSize": 16,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "6419fbaa-b4c2-4b40-8cb8-5dc8e7843aff"
-    },
-    "fileId": "82Uls3XGFHMoB9vlCbSdFG",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4c24f026-3bbb-49b9-a5ae-9d5fe95e0049"
+      "__uuid__": "fe1da606-c1b8-4326-a1d4-b8fe23a52230"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -215,7 +173,61 @@
     "_id": ""
   },
   {
-    "__type__": "cc.PolygonCollider",
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "cc717ef4-b0bd-450d-8b1d-bd3ec0710a17"
+    },
+    "fileId": "4ebUefy1NLyJhTRWtxetQe",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "aa36030d-dfeb-4912-b3f3-53c1a1a6245b"
+    },
+    "_type": 0,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "1e1f8IcusZDA5to30UQq95v",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "speedMax": 300,
+    "speedMin": 200,
+    "getUfoSound": {
+      "__uuid__": "88238e91-467b-4c90-a780-01cb6dad0b7a"
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -228,117 +240,11 @@
       "x": 0,
       "y": 0
     },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -22,
-        "y": 16
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -28,
-        "y": 14
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -32,
-        "y": 6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -31,
-        "y": -10
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -26,
-        "y": -15
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 22,
-        "y": -16
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 28,
-        "y": -14
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 32,
-        "y": -6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 31,
-        "y": 10
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 26,
-        "y": 15
-      }
-    ],
-    "_id": ""
-  },
-  {
-    "__type__": "32e26kzmGlK4odAEOcH4Z7A",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 40,
+      "height": 40
     },
-    "_enabled": true,
-    "score": 50,
-    "HP": 2,
-    "speedMax": 800,
-    "speedMin": 400,
-    "initSpriteFrame": {
-      "__uuid__": "4c24f026-3bbb-49b9-a5ae-9d5fe95e0049"
-    },
-    "explosionSound": {
-      "__uuid__": "a058ccf8-76f0-4de9-a40f-74d33e76d65c"
-    },
-    "hitedMusic": {
-      "__uuid__": "e6e69245-0856-426f-a6af-c387a822e0e7"
-    },
-    "text": {
-      "__id__": 3
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_defaultClip": null,
-    "_clips": [
-      {
-        "__uuid__": "0c92f89f-1d1b-4364-a28e-e9d16b24359f"
-      }
-    ],
-    "playOnLoad": false,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.AudioSource",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_clip": null,
-    "_volume": 1,
-    "_mute": false,
-    "_loop": true,
-    "playOnLoad": true,
-    "preload": false,
     "_id": ""
   },
   {
@@ -347,9 +253,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "6419fbaa-b4c2-4b40-8cb8-5dc8e7843aff"
+      "__uuid__": "cc717ef4-b0bd-450d-8b1d-bd3ec0710a17"
     },
-    "fileId": "f1MiWwVA1MYZiva+nitlj3",
+    "fileId": "1fQeQ5ofFJ7aE0k+8rSIJo",
     "sync": false
   }
 ]

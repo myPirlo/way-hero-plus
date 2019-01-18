@@ -26,6 +26,22 @@
       true,
       false,
       true,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      true,
       false
     ],
     [
@@ -33,13 +49,7 @@
       false,
       true,
       false,
-      true
-    ],
-    [
       false,
-      false,
-      false,
-      true,
       false
     ]
   ],
@@ -73,7 +83,8 @@
     "bullet",
     "enemy",
     "hero",
-    "ufo"
+    "ufo",
+    "protect"
   ],
   "simulator-orientation": false,
   "simulator-resolution": {

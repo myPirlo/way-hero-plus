@@ -55,7 +55,8 @@ cc.Class({
         bulletSound: {
             default: null,
             type: cc.AudioClip,
-        }
+        },
+        atk:cc.Integer
     }),
 
     onLoad: function () {
@@ -67,7 +68,7 @@ cc.Class({
     startAction: function () {
         this.startShoot = function () {
             this.genNewBullet(this.infiniteBullet);
-            cc.audioEngine.play(this.bulletSound);
+            //cc.audioEngine.play(this.bulletSound,false,0.5);
         }.bind(this);
         // 定时器 发射子弹的就是创建子弹对象
         this.schedule(this.startShoot, this.infiniteBullet.rate);
@@ -90,12 +91,6 @@ cc.Class({
     },
     //获取子弹位置
     getBulletPosition: function(positionStr){
-        // console.log(positionStr)
-        // console.log(eval(positionStr))
-        // let heroP = this.hero.getPosition();
-        // let newV2_x = heroP.x + eval(positionStr);
-        // let newV2_y = heroP.y;
-        // return cc.v2(newV2_x, newV2_y);
 
         let heroP = this.hero.getPosition();
         var newV2_x = heroP.x
@@ -117,7 +112,7 @@ cc.Class({
             if (this.finiteBullet[i].ufoBulletName === ufoBulletName) {
                 let startDoubleShoot = function (i) {
                     this.genNewBullet(this.finiteBullet[i]);
-                    cc.audioEngine.play(this.bulletSound);
+                    cc.audioEngine.play(this.bulletSound,false,0.2);
                 }.bind(this, i);
                 // 设置一个延时，当一个定时器走完之后，另一个延时结束，开始执行
                 this.schedule(startDoubleShoot, this.finiteBullet[i].rate, this.finiteBullet[i].duration);

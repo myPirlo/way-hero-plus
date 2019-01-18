@@ -306,8 +306,8 @@
     "_enabled": true,
     "score": 20,
     "HP": 3,
-    "speedMax": 600,
-    "speedMin": 400,
+    "speedMax": 400,
+    "speedMin": 300,
     "initSpriteFrame": {
       "__uuid__": "190d6b46-b217-41c2-b2c2-c0bc247ba56f"
     },

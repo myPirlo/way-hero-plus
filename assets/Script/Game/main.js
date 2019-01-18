@@ -3,6 +3,7 @@ cc.Class({
     properties: () => ({
         pause: cc.Button,
         scoreDisplay: cc.Label,
+        levelDisplay:cc.Label,
         bombAmount: cc.Label,
         bombDisplay: cc.Node,
         pauseSprite: {
@@ -45,7 +46,8 @@ cc.Class({
         buttonSound: {
             default: null,
             type: cc.AudioClip
-        }
+        },
+        level:1
     }),
 
     // use this for initialization
@@ -54,6 +56,7 @@ cc.Class({
         this.enemyGroup.startAction();
         this.bulletGroup.startAction();
         this.ufoGroup.startAction();
+        
         // play bgm
         //this.currentBgm=cc.audioEngine.play(this.bgm, true);
     },
@@ -82,9 +85,9 @@ cc.Class({
         this.hero.offDrag();
         return D.commonState.pauseState = !D.commonState.pauseState;
     },
-    // 使用tnt炸弹
+    // 使用TNT炸弹
     useBomb: function () {
-        if (D.commonState.bombAmount > 0) {
+        //if (D.commonState.bombAmount > 0) {
             // 音效
             cc.audioEngine.play(this.bombSound);
             // 把当前的node.children 赋值给一个新的对象
@@ -94,25 +97,24 @@ cc.Class({
             }
             D.commonState.bombAmount--;
             this.bombAmount.string = String(D.commonState.bombAmount);
-        }
+        //}
     },
     // 接收炸弹
     receiveBomb: function () {
-        D.commonState.bombAmount++;
-        this.bombAmount.string = String(D.commonState.bombAmount);
+        //原本的搜集炸弹逻辑
+        // D.commonState.bombAmount++;
+        // this.bombAmount.string = String(D.commonState.bombAmount);
+        //现在改为直接始用
+        this.useBomb()
     },
     // 分数
     changeScore: function (score) {
         D.commonState.gameScore += score;
-        this.scoreDisplay.string = D.commonState.gameScore.toString();
-        if(D.commonState.gameScore%10===0){
-        //    let thisMain= this.node.getComponent('main')
-        //    console.log(thisMain)
-        //    let enemy1=thisMain.getComponent('enemy1')
-        //    console.log(enemy1)
-        //  console.log(this.enemy1)
-        
+        if(D.commonState.gameScore%200==0){
+            this.level++
+            this.levelDisplay.string=this.level
         }
+        this.scoreDisplay.string = D.commonState.gameScore.toString();
     },
     // 游戏结束
     gameOver: function () {

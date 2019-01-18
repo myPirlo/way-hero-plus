@@ -197,7 +197,7 @@
       "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -306,7 +306,7 @@
     "_enabled": true,
     "score": 10,
     "HP": 1,
-    "speedMax": 400,
+    "speedMax": 300,
     "speedMin": 200,
     "initSpriteFrame": {
       "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"

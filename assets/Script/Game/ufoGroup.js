@@ -30,7 +30,7 @@ cc.Class({
     onLoad: function () {
         D.common.batchInitNodePool(this, this.ufoG);
     },
-    // 填充弹药
+    // 生成掉落物品
     startAction: function () {
         for(let i = 0; i < this.ufoG.length; i++) {
             let ufoName = this.ufoG[i].name;
