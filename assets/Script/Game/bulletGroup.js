@@ -71,7 +71,20 @@ cc.Class({
             //cc.audioEngine.play(this.bulletSound,false,0.5);
         }.bind(this);
         // 定时器 发射子弹的就是创建子弹对象
-        this.schedule(this.startShoot, this.infiniteBullet.rate);
+        this.startFire()
+    },
+    startFire(){
+        this.startBulletTimer=setInterval(
+            //promise的写法是需要带()的
+            this.startShoot
+        , this.infiniteBullet.rate*1000/D.commonState.shotSpeed/D.commonState.buffShotSpeed);
+    },
+    stopFire(){
+        clearInterval(this.startBulletTimer)
+    },
+    reStartFire(){
+        this.stopFire()
+        this.startAction()
     },
     // 生成子弹
     genNewBullet: function (bulletInfo) {
@@ -107,19 +120,20 @@ cc.Class({
     },
     // 更换子弹
     changeBullet: function (ufoBulletName) {
-        this.unschedule(this.startShoot);
-        for (let i = 0; i < this.finiteBullet.length; i++) {
-            if (this.finiteBullet[i].ufoBulletName === ufoBulletName) {
-                let startDoubleShoot = function (i) {
-                    this.genNewBullet(this.finiteBullet[i]);
-                    cc.audioEngine.play(this.bulletSound,false,0.2);
-                }.bind(this, i);
-                // 设置一个延时，当一个定时器走完之后，另一个延时结束，开始执行
-                this.schedule(startDoubleShoot, this.finiteBullet[i].rate, this.finiteBullet[i].duration);
-                let delay = this.finiteBullet[i].rate * this.finiteBullet[i].duration;
-                this.schedule(this.startShoot, this.infiniteBullet.rate, cc.macro.REPEAT_FOREVER, delay);
-            }
-        }
+        this.reStartFire()
+        // this.unschedule(this.startShoot);
+        // for (let i = 0; i < this.finiteBullet.length; i++) {
+        //     if (this.finiteBullet[i].ufoBulletName === ufoBulletName) {
+        //         let startDoubleShoot = function (i) {
+        //             this.genNewBullet(this.finiteBullet[i]);
+        //             cc.audioEngine.play(this.bulletSound,false,0.2);
+        //         }.bind(this, i);
+        //         // 设置一个延时，当一个定时器走完之后，另一个延时结束，开始执行
+        //         this.schedule(startDoubleShoot, this.finiteBullet[i].rate, this.finiteBullet[i].duration);
+        //         let delay = this.finiteBullet[i].rate * this.finiteBullet[i].duration;
+        //         this.schedule(this.startShoot, this.infiniteBullet.rate, cc.macro.REPEAT_FOREVER, delay);
+        //     }
+        // }
 
     },
     //销毁子弹

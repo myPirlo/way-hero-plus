@@ -16,6 +16,7 @@ cc.Class({
     },
 
     open () {
+        console.log(111)
         this.display.runAction(this._show);
         this.startBtn.active=false
         this.scoreListBtn.active=false

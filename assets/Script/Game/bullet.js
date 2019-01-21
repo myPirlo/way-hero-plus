@@ -15,7 +15,7 @@ cc.Class({
     },
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        this.node.y += dt * this.speed;
+        this.node.y += dt * this.speed*D.commonState.shotSpeed*D.commonState.buffShotSpeed;
         if (this.node.y > this.node.parent.height){
             this.bulletGroup.destroyBullet(this.node);
         }

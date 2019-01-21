@@ -12,8 +12,10 @@ cc.Class({
             type: cc.Integer,
             tooltip: '敌机血量',
         },
-        speedMax: 0,
-        speedMin: 0,
+        MaxSpeedY: 0,
+        MinSpeedY: 0,
+        MaxSpeedX: 0,
+        MinSpeedX: 0,
         initSpriteFrame: {
             default: null,
             type: cc.SpriteFrame,
@@ -42,7 +44,11 @@ cc.Class({
         if(this.text){
             this.text.string=this.HP
         }
-        this.speed = Math.random() * (this.speedMax - this.speedMin + 1) + this.speedMin;
+        this.direction=Math.random()>0.5?1:-1
+        this.speedY = Math.random() * (this.MaxSpeedY - this.MinSpeedY + 1) + this.MinSpeedY;
+        this.speedX = Math.random() * (this.MaxSpeedX - this.MinSpeedX + 1) + this.MinSpeedX*this.direction;
+        
+        
         this.enemyHp = this.HP;
         // 找到node的Sprite组件
         let nSprite = this.node.getComponent(cc.Sprite);
@@ -54,14 +60,14 @@ cc.Class({
     //碰撞检测
     onCollisionEnter: function(other, self){
         cc.audioEngine.play(this.hitedMusic);
-        if(other.name=='protect<PolygonCollider>'){
+        if(other.name=='protect<BoxCollider>'){
             this.explodingAnim();
             return
         }
         if (other.node.group !== 'bullet') {
             return;
         }
-        this.enemyHp-=D.commonState.atk;
+        this.enemyHp-=(D.commonState.atk+D.commonState.buffatk);
        
         if(this.text){
             this.text.string=this.enemyHp
@@ -83,17 +89,32 @@ cc.Class({
     },
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        if(D.commonState.gameScore%50===0){
-            
+        if(D.commonState.gameScore%20===0){
             D.commonState.gameScore+=10
-            this.speedMax+=50
-            this.speedMin+=50
-            this.HP+=5
+            this.HP+=10
+            this.speedY+=20
         }
-        this.node.y -= dt * this.speed;
+        this.node.y -= dt * this.speedY;
+        if(D.commonState.gameScore>1050){
+            this.node.x += dt * this.speedX;
+        }
         //出屏幕后 回收节点
         if (this.node.y < -this.node.parent.height / 2){
+            
             this.enemyGroup.destroyEnemy(this.node);
+            
+            return
+        }
+        if (this.node.x-this.node.width/2 < -this.node.parent.width / 2){
+            this.speedX=-this.speedX
+            //this.enemyGroup.destroyEnemy(this.node);
+            
+            return
+        }
+        if (this.node.x+this.node.width/2 > this.node.parent.width / 2){
+            this.speedX=-this.speedX
+            //this.enemyGroup.destroyEnemy(this.node);
+            return
         }
     },
     onHandleDestroy: function () {

@@ -64,8 +64,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1.8,
+      "y": 1.8,
       "z": 1
     },
     "_rotationX": 0,
@@ -140,10 +140,12 @@
       "__id__": 1
     },
     "_enabled": true,
-    "score": 250,
+    "score": 100,
     "HP": 99999,
-    "speedMax": 1680,
-    "speedMin": 360,
+    "MaxSpeedY": 300,
+    "MinSpeedY": 1200,
+    "MaxSpeedX": 300,
+    "MinSpeedX": 80,
     "initSpriteFrame": {
       "__uuid__": "314ec90d-b1eb-480a-8fa9-087b828ebacf"
     },

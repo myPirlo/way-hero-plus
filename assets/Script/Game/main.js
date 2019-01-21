@@ -61,9 +61,28 @@ cc.Class({
         //this.currentBgm=cc.audioEngine.play(this.bgm, true);
     },
     initState: function () {
+        //暂停状态
         D.commonState.pauseState = false;
+        //储存炸药数量
         D.commonState.bombAmount = 0;
+        //游戏得分
         D.commonState.gameScore = 0;
+        //游戏难度
+        D.commonState.level=0
+        //子弹威力
+        D.commonState.atk=1
+        //敌人刷新速度
+        D.commonState.enemyFeq=1,
+        //子弹射速
+        D.commonState.shotSpeed=1
+        //分数基数,用于翻倍基础得分
+        D.commonState.scoreBasic=1
+        //风力影响
+        D.commonState.wind=false,
+        //BUFF后的攻击力
+        D.commonState.buffatk=0,
+        //BUFF后的子弹速度
+        D.commonState.buffShotSpeed=1
     },
     // 暂停
     handlePause: function () {
@@ -73,6 +92,7 @@ cc.Class({
             //this.currentBgm=cc.audioEngine.play(this.bgm, true);
             this.pause.normalSprite = this.pauseSprite[0];
             // 开始正在运行的场景
+            this.enemyGroup.startAction()
             cc.director.resume();
             // 添加Hero拖拽监听
             this.hero.onDrag();
@@ -80,6 +100,7 @@ cc.Class({
         }
         this.pause.normalSprite = this.pauseSprite[1];
         // 暂停正在运行的场景
+        this.enemyGroup.stopAction()
         cc.director.pause();
         // 移除Hero拖拽监听
         this.hero.offDrag();
@@ -109,8 +130,8 @@ cc.Class({
     },
     // 分数
     changeScore: function (score) {
-        D.commonState.gameScore += score;
-        if(D.commonState.gameScore%200==0){
+        D.commonState.gameScore += score*D.commonState.scoreBasic;
+        if(D.commonState.gameScore%100==0){
             this.level++
             this.levelDisplay.string=this.level
         }
@@ -121,6 +142,8 @@ cc.Class({
         D.common.clearAllPool();
         cc.audioEngine.play(this.gameOverSound);
         cc.director.loadScene('End');
+        this.enemyGroup.stopAction()
+        this.bulletGroup.stopFire()
     },
 
     // called every frame, uncomment this function to activate update callback

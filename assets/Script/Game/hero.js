@@ -6,6 +6,10 @@ cc.Class({
             default: null,
             type: require('bulletGroup'),
         },
+        enemyGroup: {
+            default: null,
+            type: require('enemyGroup'),
+        },
         mainScript: {
             default: null,
             type: require('main'),
@@ -15,13 +19,13 @@ cc.Class({
             type:cc.AudioClip
         },
         timer:null,
+        timer2:null,
         tips:cc.Node
     }),
 
     // use this for initialization
     onLoad: function () {
-        
-        
+        this.showTips('相信我,没你想得那么简单(｀・ω・´) ')    
         this.tips.opacity=0
         // 监听拖动事件
         this.onDrag();
@@ -51,14 +55,22 @@ cc.Class({
     // 碰撞组件
     onCollisionEnter: function (other, self) {
         if (other.node.group === 'ufo'){
-            switch (other.node.name) {
+            switch (other.node.name) {     
                 case 'doubleBullet':
-                    this.bulletGroup.changeBullet(other.node.name);
+                    if(D.commonState.shotSpeed<2){
+                        D.commonState.shotSpeed+=0.1
+                    }else{
+                        return
+                    }
+                    this.showTips('子弹速度提升')
+                    this.bulletGroup.reStartFire();
                     break
                 case 'tnt':
                     this.mainScript.receiveBomb();
                     break
                 case 'protect':
+                    this.showTips('护盾是个可以放飞自我的道具')
+                    D.commonState.hasProtect=true
                     this.node.children[0].active=true
                     clearTimeout(this.timer)
                     this.timer=setTimeout(()=>{
@@ -71,6 +83,30 @@ cc.Class({
                     D.commonState.atk++
                     this.showTips('子弹等级提升至'+D.commonState.atk+'级') 
                     break
+                case 'doubleScore':
+                    clearTimeout(this.timer2)
+                    D.commonState.scoreBasic=2
+                    D.commonState.enemyFeq=2.4
+                    this.enemyGroup.reStartAction()
+                    setTimeout(() => {
+                        D.commonState.scoreBasic=1
+                        D.commonState.enemyFeq=1
+                        this.enemyGroup.reStartAction()
+                    }, 5000);
+                    this.showTips('你是不是得到了什么奇怪的道具?') 
+                    break
+                case 'superShot':
+                    D.commonState.buffShotSpeed=3
+                    D.commonState.buffatk=5
+                    this.bulletGroup.reStartFire()
+                    setTimeout(() => {
+                        D.commonState.buffShotSpeed=1
+                        D.commonState.buffatk=0
+                        this.bulletGroup.reStartFire()
+                    }, 10000);
+                    
+                    break
+                    
             }
         } else if (other.node.group === 'enemy'){
             if(D.commonState.hasProtect){
@@ -94,14 +130,17 @@ cc.Class({
 
     showTips(string){
         this.tips.children[1].getComponent(cc.Label).string=string
-        let fadeIn=cc.fadeIn(1)
-        let fadeOut = cc.fadeOut(2)   
+        let fadeIn=cc.fadeIn(3)
+        let fadeOut = cc.fadeOut(3)   
         let seq=cc.sequence(fadeIn,fadeOut)          
         this.tips.runAction(seq);
-    }
+    },
 
     // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    update: function (dt) {
+        if(D.commonState.gameScore>=1000&&!D.commonState.wind){
+            this.showTips('很简单?那就对了,我们增加点难度')
+            D.commonState.wind=true
+        }
+    },
 });

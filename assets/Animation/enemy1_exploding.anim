@@ -3,7 +3,7 @@
   "_name": "enemy1_exploding",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.06666666666666667,
+  "_duration": 0.016666666666666666,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -13,24 +13,6 @@
         "spriteFrame": [
           {
             "frame": 0,
-            "value": {
-              "__uuid__": "db7ab81a-521c-40bb-b7a9-bc576421b1d2"
-            }
-          },
-          {
-            "frame": 0.016666666666666666,
-            "value": {
-              "__uuid__": "669b61cd-114c-4a2e-a8d8-09cee40a762c"
-            }
-          },
-          {
-            "frame": 0.03333333333333333,
-            "value": {
-              "__uuid__": "657cce6b-a427-470b-80b9-97f5acd56134"
-            }
-          },
-          {
-            "frame": 0.05,
             "value": {
               "__uuid__": "b942f7b9-bcb3-4ada-8a54-1a1bd4b13a53"
             }

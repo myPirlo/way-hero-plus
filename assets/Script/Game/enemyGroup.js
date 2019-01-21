@@ -18,7 +18,8 @@ cc.Class({
         mainScript: {
             default: null,
             type: require('main'),
-        }
+        },
+        startTimer:[]
     },
 
     // use this for initialization
@@ -27,6 +28,7 @@ cc.Class({
     },
     // 敌机出动
     startAction: function () {
+        console.log(D.commonState.enemyFeq)
         // 每组敌机都需要设置定时器
         for(let i = 0; i < this.enemyGroup.length; i++) {
             let groupName = this.enemyGroup[i].name;
@@ -34,8 +36,17 @@ cc.Class({
             this[groupName] = function (i) {
                 this.genNewEnemy(this.enemyGroup[i]);
             }.bind(this, i)
-            this.schedule(this[groupName], freq);
+            this.startTimer[i]=setInterval(this[groupName], freq*1000/D.commonState.enemyFeq);
         }
+    },
+    stopAction(){
+        for(var i=0;i<this.startTimer.length;i++){
+            clearInterval(this.startTimer[i])
+        }
+    },
+    reStartAction(){
+        this.stopAction()
+        this.startAction()
     },
     // 生成敌机
     genNewEnemy: function (enemyInfo) {
@@ -50,7 +61,7 @@ cc.Class({
     //敌机随机生成的位置
     getNewEnemyPosition: function(newEnemy) {
         //位于上方，先不可见
-        let randx = (Math.random() - 0.5) * 2 * (this.node.parent.width / 2 - newEnemy.width / 2);
+        let randx = (Math.random() - 0.5) * 2 * (this.node.parent.width / 2 - newEnemy.width);
         let randy = this.node.parent.height / 2 + newEnemy.height / 2;
         return cc.v2(randx,randy);
     },
