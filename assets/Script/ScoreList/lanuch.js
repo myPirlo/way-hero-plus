@@ -8,7 +8,8 @@ cc.Class({
         scoreListBtn:cc.Node,
         titleList:cc.Node,
         intro:cc.Node,
-        introBtn:cc.Node
+        introBtn:cc.Node,
+        PK:cc.Node
     },
 
     start () {
@@ -25,6 +26,7 @@ cc.Class({
         this.scoreListBtn.active=false
         this.titleList.active=false
         this.introBtn.active=false
+        this.PK.active=false
     },
 
     close(tag){
@@ -35,6 +37,7 @@ cc.Class({
         this.scoreListBtn.active=true
         this.titleList.active=true
         this.introBtn.active=true
+        this.PK.active=true
     },
     
     showIntr(){
@@ -44,6 +47,12 @@ cc.Class({
     hideIntro(){
         this.intro.active=false
         this.close()
+    },
+    doShare(){
+        wx.shareAppMessage({
+            title: '好玩到无法自拔,快来和我一起在砖块的世界里攻城略地！！',
+            imageUrl:'http://webfdh.com/way-hero/2.png'
+        })
     }
 
 });

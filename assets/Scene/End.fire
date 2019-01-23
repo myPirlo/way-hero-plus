@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5924321351109144,
-      "y": 0.5924321351109144,
+      "x": 0.4085457271364318,
+      "y": 0.4085457271364318,
       "z": 1
     },
     "_quat": {
@@ -73,13 +73,16 @@
       },
       {
         "__id__": 12
+      },
+      {
+        "__id__": 32
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 32
+        "__id__": 34
       }
     ],
     "_prefab": null,
@@ -314,9 +317,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 189,
-      "g": 245,
-      "b": 207,
+      "r": 121,
+      "g": 247,
+      "b": 61,
       "a": 255
     },
     "_contentSize": {
@@ -332,7 +335,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 169,
+      "y": -2,
       "z": 0
     },
     "_scale": {
@@ -382,7 +385,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
+      "width": 218,
       "height": 40
     },
     "_anchorPoint": {
@@ -428,8 +431,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "炫耀分享",
-    "_N$string": "炫耀分享",
+    "_string": "邀请好友PK",
+    "_N$string": "邀请好友PK",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -504,9 +507,9 @@
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 189,
-      "g": 245,
-      "b": 207,
+      "r": 121,
+      "g": 247,
+      "b": 61,
       "a": 255
     },
     "_N$disabledColor": {
@@ -686,7 +689,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -71,
+      "y": -121,
       "z": 0
     },
     "_scale": {
@@ -903,7 +906,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 38,
+      "y": -133,
       "z": 0
     },
     "_scale": {
@@ -1084,9 +1087,9 @@
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 167,
+      "g": 198,
+      "b": 231,
       "a": 255
     },
     "_N$disabledColor": {
@@ -1135,9 +1138,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 167,
+      "g": 198,
+      "b": 231,
       "a": 255
     },
     "_contentSize": {
@@ -1153,7 +1156,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -86,
+      "y": -257,
       "z": 0
     },
     "_scale": {
@@ -1359,6 +1362,92 @@
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_id": "f51bZ3eeBFiYFA9AFE6tgv"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 2,
+    "_components": [
+      {
+        "__id__": 33
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 533.36,
+      "height": 80
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 183,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": "bcYhn7eH1KWYfCEbbEdy7C"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 32
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 1,
+    "_dstBlendFactor": 771,
+    "_useOriginalSize": false,
+    "_string": "快邀请好友和你一起对战PK吧\n↓↓",
+    "_N$string": "快邀请好友和你一起对战PK吧\n↓↓",
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_id": "7bQez+aFRDZZi0+gOhhWpM"
   },
   {
     "__type__": "cc.Canvas",
