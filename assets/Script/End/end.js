@@ -23,10 +23,8 @@ cc.Class({
             type: cc.AudioClip
         }
     },
-
     // use this for initialization
     start: function () {
-       
         this.newScore.string = D.commonState.gameScore ? D.commonState.gameScore.toString() : '0';
         if(D.commonState.gameScore){
             //如果有分数,就向子域中发送分数
@@ -35,9 +33,9 @@ cc.Class({
                 score: D.commonState.gameScore,
                 year: (new Date()).getFullYear()
             })
-        }  
-        
+        }    
     },
+    
     restartGame: function () {
         cc.audioEngine.play(this.buttonSound);
         cc.director.loadScene('Game');

@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.40854572713643117,
-      "y": 0.40854572713643117,
+      "x": 0.8166829336745707,
+      "y": 0.8166829336745707,
       "z": 1
     },
     "_quat": {
@@ -616,7 +616,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -443,
+      "y": -329,
       "z": 0
     },
     "_scale": {
@@ -864,7 +864,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -330,
+      "y": -437,
       "z": 0
     },
     "_scale": {
@@ -2343,7 +2343,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 288,
+      "width": 392.34,
       "height": 40
     },
     "_anchorPoint": {
@@ -2389,9 +2389,9 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "排行榜只显示好友前十名哦",
-    "_N$string": "排行榜只显示好友前十名哦",
-    "_fontSize": 24,
+    "_string": "排行榜只显示好友前十名 , 每周一更新哦",
+    "_N$string": "排行榜只显示好友前十名 , 每周一更新哦",
+    "_fontSize": 22,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,

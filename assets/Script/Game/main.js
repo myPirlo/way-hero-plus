@@ -57,6 +57,7 @@ cc.Class({
         this.bulletGroup.startAction();
         this.ufoGroup.startAction();
         
+        
         // play bgm
         //this.currentBgm=cc.audioEngine.play(this.bgm, true);
     },
@@ -89,15 +90,12 @@ cc.Class({
         cc.audioEngine.play(this.buttonSound);
         //cc.audioEngine.pause(this.currentBgm);
         if (D.commonState.pauseState) {
-            //this.currentBgm=cc.audioEngine.play(this.bgm, true);
-            this.pause.normalSprite = this.pauseSprite[0];
-            // 开始正在运行的场景
-            this.enemyGroup.startAction()
-            cc.director.resume();
-            // 添加Hero拖拽监听
-            this.hero.onDrag();
-            return D.commonState.pauseState = !D.commonState.pauseState;
+            this.doRePause()
+        }else{
+            this.doPause()
         }
+    },
+    doPause(){
         this.pause.normalSprite = this.pauseSprite[1];
         // 暂停正在运行的场景
         this.enemyGroup.stopAction()
@@ -105,6 +103,17 @@ cc.Class({
         // 移除Hero拖拽监听
         this.hero.offDrag();
         return D.commonState.pauseState = !D.commonState.pauseState;
+    },
+    doRePause(){
+        //this.currentBgm=cc.audioEngine.play(this.bgm, true);
+        this.pause.normalSprite = this.pauseSprite[0];
+        // 开始正在运行的场景
+        this.enemyGroup.startAction()
+        cc.director.resume();
+        // 添加Hero拖拽监听
+        this.hero.onDrag();
+        return D.commonState.pauseState = !D.commonState.pauseState;
+
     },
     // 使用TNT炸弹
     useBomb: function () {
@@ -148,6 +157,11 @@ cc.Class({
 
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
-
+    //     cc.game.on(cc.game.EVENT_HIDE, function () {
+    //         this.doPause()
+    //     });
+    //     cc.game.on(cc.game.EVENT_SHOW, function () {
+    //         this.doRePause()
+    //     });
     // },
 });
