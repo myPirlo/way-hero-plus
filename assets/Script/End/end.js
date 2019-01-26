@@ -45,10 +45,8 @@ cc.Class({
         cc.director.loadScene('Start');
     },
     endShare(){
-        wx.shareAppMessage({
-            title: '好玩到无法自拔,超过我的'+D.commonState.gameScore+'分算我输！！！',
-            imageUrl:'http://webfdh.com/way-hero/2.png'
-        })
+        let num=Math.floor(Math.random()*D.shareInfo.length)
+        wx.shareAppMessage(D.shareInfo[num])
     }
 
 

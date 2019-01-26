@@ -28,7 +28,6 @@ cc.Class({
     },
     // 敌机出动
     startAction: function () {
-        console.log(D.commonState.enemyFeq)
         // 每组敌机都需要设置定时器
         for(let i = 0; i < this.enemyGroup.length; i++) {
             let groupName = this.enemyGroup[i].name;
@@ -41,7 +40,9 @@ cc.Class({
     },
     stopAction(){
         for(var i=0;i<this.startTimer.length;i++){
-            clearInterval(this.startTimer[i])
+            if(this.startTimer[i]){
+                clearInterval(this.startTimer[i])
+            }
         }
     },
     reStartAction(){

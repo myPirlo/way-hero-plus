@@ -18,6 +18,10 @@ cc.Class({
             default:null,
             type:cc.AudioClip
         },
+        heroHitedBefore:{
+            default:null,
+            type:cc.AudioClip
+        },
         timer:null,
         timer2:null,
         tips:cc.Node
@@ -112,14 +116,33 @@ cc.Class({
             if(D.commonState.hasProtect){
                 return
             }
-            cc.audioEngine.play(this.heroHited);
-            
-            let anim = this.getComponent(cc.Animation);
-            let animName = this.node.name + '_exploding';
-            anim.play(animName);
-            anim.on('finished', this.onHandleDestroy, this);
-
+            //如果有复活的机会
+            let year=(new Date()).getFullYear()
+            let month=(new Date()).getMonth()
+            let day=(new Date()).getDate()
+            let dateNum=String(year)+String(month)+String(day)
+            if(D.commonState.relifeChance>0&&dateNum!='2019027'&&dateNum!='2019028'){
+                //显示复活框子,并暂停游戏
+                cc.audioEngine.play(this.heroHitedBefore);
+                this.mainScript.showModal()
+                this.mainScript.doPause()
+            }else{
+                this.heroDied()
+            }
         }
+    },
+    doRelife(){
+        if(D.commonState.relifeBtn<1){
+            //表示用户调起分享,还未关闭分享页
+            this.mainScript.doShareToGroup()
+            D.commonState.relifeBtn++
+            return
+        }else{
+            D.commonState.relifeChance--
+            this.mainScript.useBomb()
+            this.mainScript.hideModal()
+            this.mainScript.doRePause()
+        }    
     },
     onHandleDestroy: function () {
         // 暂停正在运行的场景，该暂停只会停止游戏逻辑执行，但是不会停止渲染和 UI 响应
@@ -127,7 +150,18 @@ cc.Class({
         // 游戏结束转场
         this.mainScript.gameOver();
     },
-
+    chooseGoDie(){
+        this.mainScript.hideModal()
+        this.mainScript.doRePause()
+        this.heroDied()
+    },
+    heroDied(){
+        cc.audioEngine.play(this.heroHited);  
+        let anim = this.getComponent(cc.Animation);
+        let animName = this.node.name + '_exploding';
+        anim.play(animName);
+        anim.on('finished', this.onHandleDestroy, this);
+    },
     showTips(string){
         this.tips.children[1].getComponent(cc.Label).string=string
         let fadeIn=cc.fadeIn(3)

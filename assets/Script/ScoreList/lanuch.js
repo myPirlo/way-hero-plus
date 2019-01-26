@@ -49,10 +49,8 @@ cc.Class({
         this.close()
     },
     doShare(){
-        wx.shareAppMessage({
-            title: '好玩到无法自拔,快来和我一起在砖块的世界里攻城略地！！',
-            imageUrl:'http://webfdh.com/way-hero/2.png'
-        })
+        let num=Math.floor(Math.random()*D.shareInfo.length)
+        wx.shareAppMessage(D.shareInfo[num])
     }
 
 });

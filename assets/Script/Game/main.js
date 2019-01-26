@@ -11,6 +11,12 @@ cc.Class({
           type: cc.SpriteFrame,
           tooltip:'暂停按钮图片组',
         },
+        bgpSpriteArr:{
+          default: [],
+          type: cc.SpriteFrame,
+          tooltip:'背景图片的按钮组',
+        },
+        backGroundSprite:cc.Node,
         hero: {
             default: null,
             type: require('hero')
@@ -47,7 +53,8 @@ cc.Class({
             default: null,
             type: cc.AudioClip
         },
-        level:1
+        level:1,
+        reLife:cc.Node
     }),
 
     // use this for initialization
@@ -63,27 +70,37 @@ cc.Class({
     },
     initState: function () {
         //暂停状态
-        D.commonState.pauseState = false;
+        D.commonState.pauseState = false
         //储存炸药数量
-        D.commonState.bombAmount = 0;
+        D.commonState.bombAmount = 0
         //游戏得分
-        D.commonState.gameScore = 0;
+        D.commonState.gameScore = 0
         //游戏难度
         D.commonState.level=0
         //子弹威力
         D.commonState.atk=1
         //敌人刷新速度
-        D.commonState.enemyFeq=1,
+        D.commonState.enemyFeq=1
         //子弹射速
         D.commonState.shotSpeed=1
         //分数基数,用于翻倍基础得分
         D.commonState.scoreBasic=1
         //风力影响
-        D.commonState.wind=false,
+        D.commonState.wind=false
         //BUFF后的攻击力
-        D.commonState.buffatk=0,
+        D.commonState.buffatk=0
         //BUFF后的子弹速度
         D.commonState.buffShotSpeed=1
+        //分享复活的机会数
+        D.commonState.relifeChance=1
+        //分享复活的按钮
+        D.commonState.relifeBtn=0
+        
+        let sNum=Math.floor(Math.random()*this.bgpSpriteArr.length)
+        console.log(this.bgpSpriteArr[sNum])
+        this.backGroundSprite.getComponent(cc.Sprite).spriteFrame=this.bgpSpriteArr[sNum]
+        //console.log(2)
+        
     },
     // 暂停
     handlePause: function () {
@@ -148,12 +165,23 @@ cc.Class({
     },
     // 游戏结束
     gameOver: function () {
-        D.common.clearAllPool();
-        cc.audioEngine.play(this.gameOverSound);
-        cc.director.loadScene('End');
         this.enemyGroup.stopAction()
         this.bulletGroup.stopFire()
+        D.common.clearAllPool();
+        cc.audioEngine.play(this.gameOverSound);
+        cc.director.loadScene('End');     
     },
+
+    showModal(){
+        this.reLife.active=true
+    },
+    hideModal(){
+        this.reLife.active=false
+    },
+    doShareToGroup(){
+        let num=Math.floor(Math.random()*D.shareInfo.length)
+        wx.shareAppMessage(D.shareInfo[num])
+    }
 
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
