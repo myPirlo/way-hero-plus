@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4085457271364318,
-      "y": 0.4085457271364318,
+      "x": 0.4154417236777672,
+      "y": 0.4154417236777672,
       "z": 1
     },
     "_quat": {
@@ -2343,7 +2343,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 392.34,
+      "width": 436.34,
       "height": 40
     },
     "_anchorPoint": {
@@ -2389,8 +2389,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "排行榜只显示好友前十名 , 每周一更新哦",
-    "_N$string": "排行榜只显示好友前十名 , 每周一更新哦",
+    "_string": "排行榜只显示好友前十名 , 每周日零点更新哦",
+    "_N$string": "排行榜只显示好友前十名 , 每周日零点更新哦",
     "_fontSize": 22,
     "_lineHeight": 40,
     "_enableWrapText": true,

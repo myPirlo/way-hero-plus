@@ -24,13 +24,20 @@ cc.Class({
         },
         timer:null,
         timer2:null,
+        timer3:null,
         tips:cc.Node
     }),
 
     // use this for initialization
     onLoad: function () {
-        this.showTips('相信我,没你想得那么简单(｀・ω・´) ')    
-        this.tips.opacity=0
+
+        this.showTips('拖动人物即可移动位置哦')  
+
+        setTimeout(() => {
+            this.showTips('相信我,没你想得那么简单(｀・ω・´) ')  
+        }, 9000);
+          
+
         // 监听拖动事件
         this.onDrag();
         // 获取碰撞检测系统
@@ -92,7 +99,7 @@ cc.Class({
                     D.commonState.scoreBasic=2
                     D.commonState.enemyFeq=2.4
                     this.enemyGroup.reStartAction()
-                    setTimeout(() => {
+                    this.timer2=setTimeout(() => {
                         D.commonState.scoreBasic=1
                         D.commonState.enemyFeq=1
                         this.enemyGroup.reStartAction()
@@ -100,10 +107,11 @@ cc.Class({
                     this.showTips('你是不是得到了什么奇怪的道具?') 
                     break
                 case 'superShot':
+                    clearTimeout(this.timer3)
                     D.commonState.buffShotSpeed=3
                     D.commonState.buffatk=5
                     this.bulletGroup.reStartFire()
-                    setTimeout(() => {
+                    this.timer3=setTimeout(() => {
                         D.commonState.buffShotSpeed=1
                         D.commonState.buffatk=0
                         this.bulletGroup.reStartFire()
@@ -121,7 +129,7 @@ cc.Class({
             let month=(new Date()).getMonth()
             let day=(new Date()).getDate()
             let dateNum=String(year)+String(month)+String(day)
-            if(D.commonState.relifeChance>0&&dateNum!='2019027'&&dateNum!='2019028'){
+            if(D.commonState.relifeChance>0&&dateNum!='2019027'){
                 //显示复活框子,并暂停游戏
                 cc.audioEngine.play(this.heroHitedBefore);
                 this.mainScript.showModal()

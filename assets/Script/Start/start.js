@@ -23,15 +23,15 @@ cc.Class({
         cc.director.preloadScene('Game');
 
             //设置微信的分享
-            // wx.showShareMenu({
-            //     withShareTicket: true
-            // })
+            wx.showShareMenu({
+                withShareTicket: true
+            })
               
-            // wx.onShareAppMessage(function () {
-            //     let num=Math.floor(Math.random()*D.shareInfo.length)
-            //     // 用户点击了“转发”按钮
-            //     return D.shareInfo[num]
-            // })
+            wx.onShareAppMessage(function () {
+                let num=Math.floor(Math.random()*D.shareInfo.length)
+                // 用户点击了“转发”按钮
+                return D.shareInfo[num]
+            })
     },
 
     startGame: function () {

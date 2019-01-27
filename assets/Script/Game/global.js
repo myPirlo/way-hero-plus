@@ -17,12 +17,16 @@ window.D = {
             title: '好玩到无法自拔,能超过我的分算我输！！！',
             imageUrl:'http://webfdh.com/way-hero/main.jpg'
         },{
-            title: '你们慢慢聊,我搬砖去了',
+            title: '真搞不懂你们,这游戏就那么好玩吗...盘它！！！',
             imageUrl:'http://webfdh.com/way-hero/banzhuan.jpg'
         },
         {
-            title: '好看的皮囊千篇一律,有趣的灵魂万里挑一',
+            title: '好看的皮囊千篇一律,有趣的游戏万里挑一',
             imageUrl:'http://webfdh.com/way-hero/main.jpg'
+        },
+        {
+            title: '我就是无聊死,也不会玩这个游戏',
+            imageUrl:'http://webfdh.com/way-hero/banzhuan.jpg'
         }
     ]
 };

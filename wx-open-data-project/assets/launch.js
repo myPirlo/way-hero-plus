@@ -66,6 +66,7 @@ cc.Class({
                         dataContainer[k].KVDataList[0].value=0
                     }else if(!_self.isWeekFun(Number(dataContainer[k].KVDataList[1].value))){
                         //不在本周,显示为0
+                        console.log(dataContainer[k])
                         dataContainer[k].KVDataList[0].value=0
                     }
                 }
@@ -131,14 +132,10 @@ cc.Class({
         var currentDay = currentY + currentM + currentD
         parseInt(currentDay)
         parseInt(mondayDay)
-        if (parseInt(currentDay) >= parseInt(mondayDay)) {
-          if (parseInt(currentDay) <= parseInt(sundayDay)) {
+        if (parseInt(sundayDay)>=parseInt(currentDay)+1 && parseInt(currentDay)+1 >= parseInt(mondayDay)) {
             return true
           } else {
             return false
-          }
-        } else {
-          return false
         }
       },
   
