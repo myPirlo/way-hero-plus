@@ -15,24 +15,30 @@ cc.Class({
             type: cc.AudioClip
         }
     },
-
     // use this for initialization
     onLoad: function () {
         
         // 预先加载游戏场景
         cc.director.preloadScene('Game');
 
-            //设置微信的分享
-            wx.showShareMenu({
-                withShareTicket: true
-            })
-              
-            wx.onShareAppMessage(function () {
+        //设置微信的分享
+        wx.showShareMenu({
+            withShareTicket: true
+        })
+    
+        wx.onShareAppMessage(function () {
                 let num=Math.floor(Math.random()*D.shareInfo.length)
                 // 用户点击了“转发”按钮
                 return D.shareInfo[num]
+        })
+        console.log(333)
+        return new Promise(()=>{
+            wx.onShow(function(){
+                console.log('注册了一个onshow')
             })
+        })
     },
+    
 
     startGame: function () {
         cc.audioEngine.play(this.buttonSound);

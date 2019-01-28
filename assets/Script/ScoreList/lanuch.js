@@ -4,12 +4,10 @@ cc.Class({
 
     properties: {
         display: cc.Node,
-        startBtn:cc.Node,
-        scoreListBtn:cc.Node,
         titleList:cc.Node,
         intro:cc.Node,
-        introBtn:cc.Node,
-        PK:cc.Node
+        startBtnGroup:cc.Node
+
     },
 
     start () {
@@ -22,22 +20,16 @@ cc.Class({
         if(tag){
             this.display.runAction(this._show);
         }
-        this.startBtn.active=false
-        this.scoreListBtn.active=false
+        this.startBtnGroup.active=false
         this.titleList.active=false
-        this.introBtn.active=false
-        this.PK.active=false
     },
 
     close(tag){
         if(tag){
             this.display.runAction(this._hide);
         }
-        this.startBtn.active=true
-        this.scoreListBtn.active=true
+        this.startBtnGroup.active=true
         this.titleList.active=true
-        this.introBtn.active=true
-        this.PK.active=true
     },
     
     showIntr(){
