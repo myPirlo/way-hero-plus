@@ -63,6 +63,12 @@ cc.Class({
         this.enemyGroup.startAction();
         this.bulletGroup.startAction();
         this.ufoGroup.startAction();
+        wx.showShareMenu({
+            withShareTicket: true
+        })
+        wx.onShareAppMessage(function () {
+            D.share()
+        })
         
         
         // play bgm
@@ -96,8 +102,10 @@ cc.Class({
         //分享复活的按钮
         D.commonState.relifeBtn=0
         
-        let sNum=Math.floor(Math.random()*this.bgpSpriteArr.length)
-        console.log(this.bgpSpriteArr[sNum])
+        let sNum=Math.floor(Math.random()*(this.bgpSpriteArr.length-1))
+        if(D.getDay()=='201914'||D.getDay()=='201915'){
+            sNum=this.bgpSpriteArr.length-1
+        }
         this.backGroundSprite.getComponent(cc.Sprite).spriteFrame=this.bgpSpriteArr[sNum]
         //console.log(2)
         
@@ -179,17 +187,7 @@ cc.Class({
         this.reLife.active=false
     },
     doShareToGroup(){
-        let num=Math.floor(Math.random()*D.shareInfo.length)
-        wx.shareAppMessage(D.shareInfo[num])
+        D.share()
     }
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-    //     cc.game.on(cc.game.EVENT_HIDE, function () {
-    //         this.doPause()
-    //     });
-    //     cc.game.on(cc.game.EVENT_SHOW, function () {
-    //         this.doRePause()
-    //     });
-    // },
 });

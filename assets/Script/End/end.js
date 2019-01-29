@@ -33,7 +33,13 @@ cc.Class({
                 score: D.commonState.gameScore,
                 year: (new Date()).getFullYear()
             })
-        }    
+        }
+        wx.showShareMenu({
+            withShareTicket: true
+        })
+        wx.onShareAppMessage(function () {
+            D.share()
+        })    
     },
     
     restartGame: function () {
@@ -45,8 +51,7 @@ cc.Class({
         cc.director.loadScene('Start');
     },
     endShare(){
-        let num=Math.floor(Math.random()*D.shareInfo.length)
-        wx.shareAppMessage(D.shareInfo[num])
+        D.share()
     }
 
 

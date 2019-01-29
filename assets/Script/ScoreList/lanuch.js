@@ -41,8 +41,7 @@ cc.Class({
         this.close()
     },
     doShare(){
-        let num=Math.floor(Math.random()*D.shareInfo.length)
-        wx.shareAppMessage(D.shareInfo[num])
+        D.share()
     }
 
 });

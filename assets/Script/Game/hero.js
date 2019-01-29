@@ -125,11 +125,7 @@ cc.Class({
                 return
             }
             //如果有复活的机会
-            let year=(new Date()).getFullYear()
-            let month=(new Date()).getMonth()
-            let day=(new Date()).getDate()
-            let dateNum=String(year)+String(month)+String(day)
-            if(D.commonState.relifeChance>0&&dateNum!='2019028'&&dateNum!='2019029'){
+            if(D.commonState.relifeChance>0&&D.getDay()!='2019030'){
                 //显示复活框子,并暂停游戏
                 cc.audioEngine.play(this.heroHitedBefore);
                 this.mainScript.showModal()

@@ -25,18 +25,14 @@ cc.Class({
         wx.showShareMenu({
             withShareTicket: true
         })
-    
         wx.onShareAppMessage(function () {
-                let num=Math.floor(Math.random()*D.shareInfo.length)
-                // 用户点击了“转发”按钮
-                return D.shareInfo[num]
+            D.share()
         })
-        console.log(333)
-        return new Promise(()=>{
-            wx.onShow(function(){
-                console.log('注册了一个onshow')
-            })
-        })
+        // return new Promise(()=>{
+        //     wx.onShow(function(){
+        //         console.log('注册了一个onshow')
+        //     })
+        // })
     },
     
 
