@@ -2,6 +2,7 @@
 window.D = {
     // singletons
     common: null, //公共方法
+    bannerAd:null,
     share(){
         let num=Math.floor(Math.random()*(this.shareInfo.length-1))
         if(this.getDay()=='201914'||this.getDay()=='201915'){
@@ -15,6 +16,39 @@ window.D = {
         let day=(new Date()).getDate()
         let dateNum=String(year)+String(month)+String(day)
         return dateNum
+    },
+    bannerAdShow() {
+        let _this=this
+        if(_this.bannerAd){
+            _this.bannerAd.destroy()
+        }
+        return new Promise((resolve, reject) => {
+            wx.getSystemInfo({
+                success: function (res) {
+                    _this.bannerAd = wx.createBannerAd({
+                        adUnitId: 'adunit-1b4096685b79a083',
+                        style: {
+                            left: 0,
+                            top: res.windowHeight - 110,
+                            width: res.windowWidth
+                        }
+                    })
+                    _this.bannerAd.show()
+                    _this.bannerAd.onError(err => {
+                        console.log(err.errMsg,err.errCode)
+                    })
+                }
+                })
+            resolve('ok')
+         })
+    },
+    bannerDestory(){
+        if(this.bannerAd){
+            this.bannerAd.destroy()
+        }
+    },
+    videoLife() {
+        
     },
     commonState: {
         atk:1,

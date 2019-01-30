@@ -7,7 +7,7 @@ cc.Class({
     },
 
     start () {       
-        console.log(this.content)
+        
         wx.onMessage( data => {
             if(data.score){
                 this.wxSetScore(data.score)
@@ -40,7 +40,7 @@ cc.Class({
                                 _self.wxGetFriendScore()
                             },
                             fail(res){
-                                console.log('上传分数成功',res)
+                                console.log('上传分数失败',res)
                             }
                         })
                     }  
@@ -66,7 +66,6 @@ cc.Class({
                         dataContainer[k].KVDataList[0].value=0
                     }else if(!_self.isWeekFun(Number(dataContainer[k].KVDataList[1].value))){
                         //不在本周,显示为0
-                        console.log(dataContainer[k])
                         dataContainer[k].KVDataList[0].value=0
                     }
                 }

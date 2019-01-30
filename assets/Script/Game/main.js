@@ -67,7 +67,10 @@ cc.Class({
             withShareTicket: true
         })
         wx.onShareAppMessage(function () {
-            D.share()
+            return {
+                title: '真搞不懂你们,这游戏就那么好玩吗...盘它！！！',
+                imageUrl:'http://webfdh.com/way-hero/banzhuan.jpg'
+            }
         })
         
         

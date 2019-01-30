@@ -22,6 +22,7 @@ cc.Class({
             default:null,
             type:cc.AudioClip
         },
+
         timer:null,
         timer2:null,
         timer3:null,
@@ -30,6 +31,10 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+
+        
+ 
+        this.Rnum=Math.random()
 
         this.showTips('拖动人物即可移动位置哦')  
 
@@ -125,28 +130,76 @@ cc.Class({
                 return
             }
             //如果有复活的机会
-            if(D.commonState.relifeChance>0&&D.getDay()!='2019030'){
-                //显示复活框子,并暂停游戏
+            if(D.commonState.relifeChance>0){
+                D.bannerAdShow()
                 cc.audioEngine.play(this.heroHitedBefore);
                 this.mainScript.showModal()
                 this.mainScript.doPause()
+                //显示复活框子,并暂停游戏
             }else{
                 this.heroDied()
             }
         }
     },
     doRelife(){
+        if(D.getDay()!='2019030'&&D.getDay()!='2019031'&&D.getDay()!='201911'&&D.getDay()!='201912'){
+            if(this.Rnum<0.5){
+                this.shareRelife()
+            }else{
+                this.vedioRelife()  
+            }    
+        }else{
+            this.vedioRelife()
+        }    
+    },
+    shareRelife(){
         if(D.commonState.relifeBtn<1){
             //表示用户调起分享,还未关闭分享页
             this.mainScript.doShareToGroup()
             D.commonState.relifeBtn++
             return
         }else{
-            D.commonState.relifeChance--
-            this.mainScript.useBomb()
-            this.mainScript.hideModal()
-            this.mainScript.doRePause()
-        }    
+            this.reLifeSuccess()
+        }
+    },
+    vedioRelife(){
+         D.bannerDestory()
+         let _this=this 
+         wx.showLoading({
+            title: '加载中',
+         })
+         return new Promise((resolve, reject) => {
+             let videoAd = wx.createRewardedVideoAd({
+                adUnitId: 'adunit-8d953778ab1ee7c0'
+             })
+             videoAd.load()
+             .then(() => {
+                 videoAd.show();
+                 wx.hideLoading();
+                 videoAd.onClose(res => {
+                     if (res && res.isEnded || res === undefined) {
+                        _this.reLifeSuccess()
+                     } else {
+                        _this.showTips('没看完视频不能复活哦...')
+                     }
+                 })
+             })
+             .catch(err => {
+                 wx.hideLoading();
+                 reject('error')
+             })
+             videoAd.onError(function () {
+                 wx.hideLoading();
+                 reject('error')
+             })
+         })
+    },
+    reLifeSuccess(){
+        D.bannerDestory()
+        D.commonState.relifeChance--
+        this.mainScript.useBomb()
+        this.mainScript.hideModal()
+        this.mainScript.doRePause()
     },
     onHandleDestroy: function () {
         // 暂停正在运行的场景，该暂停只会停止游戏逻辑执行，但是不会停止渲染和 UI 响应

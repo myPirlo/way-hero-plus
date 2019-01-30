@@ -26,21 +26,23 @@ cc.Class({
             withShareTicket: true
         })
         wx.onShareAppMessage(function () {
-            D.share()
+            return {
+                title: '真搞不懂你们,这游戏就那么好玩吗...盘它！！！',
+                imageUrl:'http://webfdh.com/way-hero/banzhuan.jpg'
+            }
         })
-        // return new Promise(()=>{
-        //     wx.onShow(function(){
-        //         console.log('注册了一个onshow')
-        //     })
-        // })
+        D.bannerAdShow()
     },
     
 
     startGame: function () {
         cc.audioEngine.play(this.buttonSound);
         // 转场
+        D.bannerDestory()
         cc.director.loadScene('Game');
-    }
+    },
+
+    
 
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

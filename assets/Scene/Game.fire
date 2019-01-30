@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4085457271364318,
-      "y": 0.4085457271364318,
+      "x": 0.4032983508245875,
+      "y": 0.4032983508245875,
       "z": 1
     },
     "_quat": {
@@ -758,6 +758,15 @@
     },
     "heroHitedBefore": {
       "__uuid__": "dcd9a587-f9f5-45a7-81f0-3584aedf6ffb"
+    },
+    "defaultbulletPrefab": {
+      "__uuid__": "87d1c992-4928-4d54-adad-6f75b226c8c1"
+    },
+    "defaultbullet": {
+      "__uuid__": "8044d29d-853b-4208-b82c-7aa0dabe14e7"
+    },
+    "superBullet": {
+      "__uuid__": "3060e3dd-5b70-4c46-a1eb-8efc5b65c5c7"
     },
     "timer": null,
     "timer2": null,
