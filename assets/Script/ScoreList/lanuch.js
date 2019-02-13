@@ -42,6 +42,34 @@ cc.Class({
     },
     doShare(){
         D.share()
+    },
+    watchVideo(){
+        D.bannerDestory()
+         let _this=this 
+         wx.showLoading({
+            title: '加载中',
+         })
+         return new Promise((resolve, reject) => {
+             let videoAd = wx.createRewardedVideoAd({
+                adUnitId: 'adunit-8d953778ab1ee7c0'
+             })
+             videoAd.load()
+             .then(() => {
+                 videoAd.show();
+                 wx.hideLoading();
+                 videoAd.onClose(res => {
+                     
+                 })
+             })
+             .catch(err => {
+                 wx.hideLoading();
+                 reject('error')
+             })
+             videoAd.onError(function () {
+                 wx.hideLoading();
+                 reject('error')
+             })
+         })
     }
 
 });

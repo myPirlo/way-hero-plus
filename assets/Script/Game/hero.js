@@ -142,7 +142,7 @@ cc.Class({
         }
     },
     doRelife(){
-        if(D.getDay()!='2019030'&&D.getDay()!='2019031'&&D.getDay()!='201911'&&D.getDay()!='201912'){
+        if(D.getDay()!='201912'&&D.getDay()!='201913'){
             if(this.Rnum<0.5){
                 this.shareRelife()
             }else{

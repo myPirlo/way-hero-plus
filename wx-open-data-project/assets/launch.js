@@ -131,6 +131,9 @@ cc.Class({
         var currentDay = currentY + currentM + currentD
         parseInt(currentDay)
         parseInt(mondayDay)
+        console.log(sundayDay)
+        console.log(parseInt(currentDay)+1)
+        console.log(mondayDay)
         if (parseInt(sundayDay)>=parseInt(currentDay)+1 && parseInt(currentDay)+1 >= parseInt(mondayDay)) {
             return true
           } else {

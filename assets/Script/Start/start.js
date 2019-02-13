@@ -17,7 +17,7 @@ cc.Class({
     },
     // use this for initialization
     onLoad: function () {
-        
+        D.bannerAdShow()
         // 预先加载游戏场景
         cc.director.preloadScene('Game');
 
@@ -31,7 +31,7 @@ cc.Class({
                 imageUrl:'http://webfdh.com/way-hero/banzhuan.jpg'
             }
         })
-        D.bannerAdShow()
+        
     },
     
 

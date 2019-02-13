@@ -29,13 +29,16 @@ window.D = {
                         adUnitId: 'adunit-1b4096685b79a083',
                         style: {
                             left: 0,
-                            top: res.windowHeight - 110,
+                            top: 0,
                             width: res.windowWidth
                         }
                     })
+                    _this.bannerAd.onResize((e) => {
+                        _this.bannerAd.style.top = res.screenHeight - _this.bannerAd.style.realHeight
+                    });
                     _this.bannerAd.show()
                     _this.bannerAd.onError(err => {
-                        console.log(err.errMsg,err.errCode)
+                        console.log('广告加载失败')
                     })
                 }
                 })
